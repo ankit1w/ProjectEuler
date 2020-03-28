@@ -16,7 +16,7 @@ def get_factors(x):
     factors = list()
     divisor = 2
 
-    while divisor not in factors:
+    while divisor not in factors and divisor < x//2:
 
         if x % divisor == 0:
             quotient = x // divisor
