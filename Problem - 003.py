@@ -1,5 +1,7 @@
 def is_prime(x):
-    if num % 2 == 0:
+    if x == 2:
+        return True
+    elif x % 2 == 0:
         return False
     for i in range(3, int(x ** 0.5) + 1, 2):
         if x % i == 0:
