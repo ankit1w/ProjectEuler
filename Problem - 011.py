@@ -27,27 +27,27 @@ product = lambda arr: reduce(lambda x, y: x * y, arr)
 
 
 def check_max_product(grid):
-    largest = 0
-    row_sum = col_sum = right_diag_sum = left_diag_sum = 0
+	largest = 0
+	row_sum = col_sum = right_diag_sum = left_diag_sum = 0
 
-    for i in range(20):
-        for j in range(20):
+	for i in range(20):
+		for j in range(20):
 
-            if j + 4 <= 20:
-                row_sum = product(grid[i][j:j + 4])
+			if j + 4 <= 20:
+				row_sum = product(grid[i][j:j + 4])
 
-            if i + 4 <= 20:
-                col_sum = product(k[j] for k in grid[i:i + 4])
+			if i + 4 <= 20:
+				col_sum = product(k[j] for k in grid[i:i + 4])
 
-            if i + 4 <= 20 and j + 4 <= 20:
-                right_diag_sum = product(grid[i + k][j + k] for k in range(4))
+			if i + 4 <= 20 and j + 4 <= 20:
+				right_diag_sum = product(grid[i + k][j + k] for k in range(4))
 
-            if i + 4 <= 20 and j - 3 >= 0:
-                left_diag_sum = product(grid[i + k][j - k] for k in range(4))
+			if i + 4 <= 20 and j - 3 >= 0:
+				left_diag_sum = product(grid[i + k][j - k] for k in range(4))
 
-            largest = max(largest, max(row_sum, col_sum, right_diag_sum, left_diag_sum))
+			largest = max(largest, max(row_sum, col_sum, right_diag_sum, left_diag_sum))
 
-    return largest
+	return largest
 
 
 print(check_max_product(grid))

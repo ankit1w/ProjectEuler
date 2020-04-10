@@ -1,8 +1,8 @@
 def next_lower_palindrome():
     """
     Product of largest three digit numbers is 999*999 = 998001 (6 digits).
-    Product of smallest three digit numbers is 100*100 = 10000 (5 digits).
     The next lower 6 digit palindrome will be 997799, then 996699, 995599, .... 989989, 988889, 987789, and so on.
+    Product of smallest three digit numbers is 100*100 = 10000 (5 digits).
     After exhausting all six digit palindromes, the pattern will be 99999, 99899, .... 98989, 98889, 98789, and so on.
     """
     for i in range(997, 99, -1):
@@ -13,23 +13,15 @@ def next_lower_palindrome():
             yield int(str(i) + str(j) + str(i)[::-1])
 
 
-def get_three_digit_factor(x):
-    """
-    Get a number and return the factors only when the quotient is three digits, otherwise return False.
-    The divisor ranges from 999 to 100, so it is always three digits.
-    """
-    divisor = 999
-    while 100 <= divisor:
-        if x % divisor == 0:
-            quotient = x // divisor
-            if len(str(quotient)) == 3:
-                return divisor, quotient
-        divisor -= 1
-
+def is_three_digits_product(n):
+    for i in range(100, 1000):
+        if not n % i:
+            if 99 < n // i < 1000:
+                return True
     return False
 
 
 for i in next_lower_palindrome():
-    if get_three_digit_factor(i):
+    if is_three_digits_product(i):
         print(i)
         break

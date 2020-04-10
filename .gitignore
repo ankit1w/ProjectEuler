@@ -1,6 +1,3 @@
 
-.idea/inspectionProfiles/profiles_settings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/ProjectEuler.iml
-.idea/workspace.xml
+*.iml
+*.xml
